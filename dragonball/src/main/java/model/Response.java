@@ -1,7 +1,9 @@
-package org.iesteis.model;
+package model;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 public class Response{
 
@@ -12,6 +14,8 @@ public class Response{
 	private Links links;
 
 	@JsonProperty("items")
+	@JacksonXmlElementWrapper(localName = "items")
+	@JacksonXmlProperty(localName = "item")
 	private List<Character> characters;
 
 	public void setMeta(Meta meta){
